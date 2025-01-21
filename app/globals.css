@@ -3,14 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --button: #a7c080;
+  --text-light: #a7c080;
+  --text-dark: #3a515d;
+  --input: #3a515d;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #5f5252;
     --foreground: #ededed;
+    --button: #a7c080;
+    --text-light: #a7c080;
+    --text-dark: #3a515d;
+    --input: #3a515d;
+    --component: #2D353B;
   }
 }
 
