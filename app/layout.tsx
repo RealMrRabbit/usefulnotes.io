@@ -30,6 +30,9 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
+        <footer className="text-text-light fixed bottom-0 right-0 p-4 bg-component rounded-tl-md sm:p-2 sm:text-sm">
+          <p>created by connor renquin</p>
+        </footer>
       </body>
     </html>
   );

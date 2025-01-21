@@ -19,14 +19,14 @@ export default function CodeBlock({ tabs = ["test"], collapsible = false }) {
   };
 
   return (
-    <div className="bg-component rounded-default shadow-default overflow-hidden w-[500px]">
+    <div className="bg-component rounded-default shadow-default overflow-scroll w-[100%]">
       {tabs.length > 1 && (
         <div className="flex bg-component p-2 ">
           {tabs.map((tab, index) => (
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`px-4 py-1 rounded-default ${
+              className={`hover:ring-1 mx-1 px-2 py-1 rounded-default ${
                 activeTab === index
                   ? "bg-button text-text-dark"
                   : "text-text-light"
