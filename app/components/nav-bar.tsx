@@ -5,7 +5,7 @@ import SocialLinks from "./social-links";
 
 export default function NavBar() {
   return (
-    <div className="fixed top-0 left-0 w-full h-12 text-white flex items-center justify-between px-4 z-50">
+    <div className="fixed max-h-2 top-10 left-0 w-full h-12 text-white flex items-center justify-between px-4 z-50">
       {/* Left: Logo */}
 
       {/* Center: Navigation Buttons */}

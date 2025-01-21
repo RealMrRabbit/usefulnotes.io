@@ -1,16 +1,29 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import Coffee from '@/public/logos/coffee-svgrepo-com.svg';
 import Reddit from '@/public/logos/reddit-icon.svg';
 
 export default function SocialLinks() {
-    return (
-      <div className='flex min-w-fit min-h-fit bg-component rounded-default shadow-default'>
-        <a href="www.google.com">
-            <Image className='h-10 w-10 filter-white' src={Coffee} alt="Arch" />
-        </a>
-        <a href="www.google.com">
-            <Image className='h-10 w-10 filter-white' src={Reddit} alt="Arch" />
-        </a>
-      </div>
-    );
-  }
+
+  const heightWidth = 30
+
+  return (
+    <div className="flex px-2 py-2 bg-component rounded-default shadow-default gap-4">
+      <a href="https://buymeacoffee.com/" className="flex items-center justify-center">
+        <Image
+          src={Coffee}
+          alt="Coffee Icon"
+          width={heightWidth}
+          height={heightWidth} // Adjust based on your box size
+        />
+      </a>
+      <a href="https://www.reddit.com" className="flex items-center justify-center">
+        <Image
+          src={Reddit}
+          alt="Reddit Icon"
+          width={heightWidth}
+          height={heightWidth} // Adjust based on your box size
+        />
+      </a>
+    </div>
+  );
+}
