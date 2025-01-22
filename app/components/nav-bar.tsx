@@ -12,7 +12,7 @@ export default function NavBar() {
 
   const NavLinks = () => (
     <div className="flex sm:flex-col lg:flex-row gap-4">
-      <Button text="getting-started" />
+      <Button text="getting-started" href="/getting-started" />
       <Button text="concepts" />
       <Button text="tools" />
       <Button text="frameworks" />
@@ -21,9 +21,8 @@ export default function NavBar() {
   );
 
   const HamburgerMenu = () => (
-    <div className="absolute top-12 left-10 w-[50%]">
+    <div className="absolute top-12 left-0 w-[50%]">
       <div className="flex flex-col gap-y-2 p-4">
-        <Search />
         <NavLinks />
       </div>
     </div>
