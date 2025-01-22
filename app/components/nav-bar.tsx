@@ -1,60 +1,57 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Button from "./button";
 import Logo from "./logo";
 import Search from "./search";
 import SocialLinks from "./social-links";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <div className="fixed left-0 w-full h-12 flex items-center justify-between p-10 z-50 bg-gradient-to-b from-background to-transparent">
-      {/* Left: Logo */}
+  const NavLinks = () => (
+    <div className="flex sm:flex-col lg:flex-row gap-4">
+      <Button text="getting-started" />
+      <Button text="concepts" />
+      <Button text="tools" />
+      <Button text="frameworks" />
+      <Button text="languages" />
+    </div>
+  );
 
-      {/* Hamburger Menu Icon (visible on smaller screens) */}
-      <button
-        className="lg:hidden flex items-center justify-center w-10 h-10"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <div className="space-y-1">
-          <span className="block w-6 h-0.5 bg-button"></span>
-          <span className="block w-6 h-0.5 bg-button"></span>
-          <span className="block w-6 h-0.5 bg-button"></span>
-        </div>
-      </button>
-
-      {/* Center: Navigation Buttons */}
-      <div className="hidden lg:flex gap-x-4">
-        <Button text="Getting Started" />
-        <Button text="Concepts" />
-        <Button text="Tools" />
-        <Button text="Frameworks" />
-        <Button text="Languages" />
+  const HamburgerMenu = () => (
+    <div className="absolute top-12 left-10 w-[50%]">
+      <div className="flex flex-col gap-y-2 p-4">
+        <Search />
+        <NavLinks />
       </div>
+    </div>
+  );
 
+  return (
+    <div className=" content left-0 top-0 w-full h-12 flex items-center justify-between pt-10 px-5 z-50 bg-gradient-to-b from-background to-transparent">
+      <div>
+        <div>
+          <RxHamburgerMenu
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden hover:cursor-pointer text-button text-2xl"
+          />
+          {menuOpen && <HamburgerMenu />}
+        </div>
+        <div className="lg:block sm:hidden">
+          <NavLinks />
+        </div>
+      </div>
 
       <Logo />
 
-      {/* Right: Search and Social Links */}
-      <div className="flex gap-x-4 items-center">
+      {/* Visible NavLinks on large screens */}
+
+      <div className="flex flex-row gap-x-4">
         <Search />
         <SocialLinks />
       </div>
-
-      {/* Dropdown Menu (shown when menuOpen is true) */}
-      {menuOpen && (
-        <div className="absolute top-12 left-10 w-[50%] lg:hidden">
-          <div className="flex flex-col gap-y-2 p-4">
-            <Button text="Getting Started" />
-            <Button text="Concepts" />
-            <Button text="Tools" />
-            <Button text="Frameworks" />
-            <Button text="Languages" />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

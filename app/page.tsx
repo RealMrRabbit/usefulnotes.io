@@ -31,9 +31,9 @@ print(reversed_array)
   ];
 
   return (
-    <div className="relative min-h-screen bg-background text-white font-[family-name:var(--font-geist-sans)]">
+    <div className="bg-background font-[family-name:var(--font-geist-sans)]">
       <main>
-        <div className="flex flex-row pt-[100px] px-20 gap-10 content-center justify-between">
+        <div className="flex pt-[100px] px-5 gap-10 content-center justify-center">
           {/* Left Code Block */}
           <CodeBlock tabs={codeSnippets} />
 
@@ -50,9 +50,9 @@ print(reversed_array)
           </div>
         </div>
 
-        <div className="flex flex-row p-20 content-center justify-between">
+        <div className="flex px-5 pt-10 content-center justify-center">
           {/* TODO Tip Section */}
-          <div className="m-10 w-[50%] text-text-light justify-self-right">
+          <div className="m-10 w-[40%] text-text-light justify-self-right">
             <h1 className="text-2xl font-semibold mb-2">Tip of the Day</h1>
             <p className="text-lg">
               Good comments are essential for maintaining clear, understandable
@@ -63,7 +63,7 @@ print(reversed_array)
             </p>
           </div>
 
-          <CodeBlock tabs={codeSnippets} />
+          <CodeBlock tabs={codeSnippets} collapsible={true} />
         </div>
       </main>
     </div>
