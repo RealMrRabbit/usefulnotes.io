@@ -1,5 +1,7 @@
 import Arch from "@/public/logos/archlinux.svg";
 import Image from "next/image";
+import YAML from "yaml";
+import { getStaticProps } from "next/dist/build/templates/pages";
 
 interface ButtonProps {
   technology?: string;
@@ -8,10 +10,12 @@ interface ButtonProps {
 
 
 export default function NoteLink({ text = "text", href = "/" }: ButtonProps) {
+  const file = getStaticProps('./test.yml', 'utf-8');
+  const test = YAML.parse(file);
   const textSize ="text-xs";
-  const overviewLink = "test"
-  const gettingStartedLink = "test"
-  const officialLink = "https://archlinux.org/"
+  const overviewLink = test.archLinux.svgLink;
+  const gettingStartedLink = test.archLinux.gettingStartedLink;
+  const officialLink = test.archLinux.svgLink;
   return (
     <div className="flex justify-between items-center bg-component text-text-light p-2 rounded-default text-center text-nowrap">
       <a href={officialLink}>
