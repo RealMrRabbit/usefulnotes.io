@@ -19,7 +19,7 @@ export default function NoteLink({ text = "text", href = "/" }: ButtonProps) {
         <Image className="hover:cursor-pointer p-2 shadow-default bg-background rounded-default h-20 w-20 self-center" src={Arch} alt="failed" />
       </a>
       <div className="flex text-left px-5 flex-col">
-        <a href="" className="text-xl pb-1">Arch Linux</a>
+        <a href="" className="hover: text-xl pb-1">Arch Linux</a>
         <a className={textSize} href={"/overview/" + overviewLink}>Overview</a>
         <a className={textSize} href={"/getting-started/" + gettingStartedLink}>Getting Started</a>
       </div>
