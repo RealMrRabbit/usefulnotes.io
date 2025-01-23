@@ -32,7 +32,7 @@ print(reversed_array)
   return (
     <div className="bg-background font-[family-name:var(--font-geist-sans)]">
       <main>
-        <div className="flex sm:flex-col lg:flex-row pt-[100px] px-5 gap-10 content-center justify-center">
+        <div className="flex sm:flex-col lg:flex-row px-5 gap-10 content-center justify-center">
           {/* Left Code Block */}
           <div className="sm:order-1">
             <CodeBlock tabs={codeSnippets} />

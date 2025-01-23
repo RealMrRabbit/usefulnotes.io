@@ -35,7 +35,7 @@ print(reversed_array)
   return (
     <div className="bg-background font-[family-name:var(--font-geist-sans)]">
       <main>
-        <div className="flex flex-col items-center pt-[100px] px-5 gap-10 content-center justify-center">
+        <div className="flex flex-col items-center px-5 gap-10 content-center justify-center">
           {/* Content Section */}
           <div className="content-center gap-5 text-text-light">
             <h1 className="text-2xl font-bold">What We Do</h1>

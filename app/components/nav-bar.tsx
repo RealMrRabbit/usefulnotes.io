@@ -12,8 +12,8 @@ export default function NavBar() {
 
   const NavLinks = () => (
     <div className="flex flex-col lg:flex-row gap-4">
-      <Button text="getting-started" href="/getting-started" />
-      <Button text="concepts" />
+      <Button text="getting-started" href="/all" />
+      <Button text="concepts" href="/overview" />
       <Button text="tools" />
       <Button text="frameworks" />
       <Button text="languages" />
@@ -27,7 +27,7 @@ export default function NavBar() {
   );
 
   return (
-    <div className=" content left-0 top-0 w-full h-12 flex items-center justify-between pt-10 px-5 z-50 bg-gradient-to-b from-background to-transparent">
+    <div className="pb-20 content left-0 top-0 w-full h-12 flex items-center justify-between pt-10 px-5 z-50 bg-gradient-to-b from-background to-transparent">
       <div>
         <div>
           <RxHamburgerMenu
@@ -41,7 +41,9 @@ export default function NavBar() {
         </div>
       </div>
 
-      <Logo />
+      <div>
+        <Logo />
+      </div>
 
       {/* Visible NavLinks on large screens */}
 
