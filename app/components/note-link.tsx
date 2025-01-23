@@ -26,7 +26,7 @@ export default function NoteLink({ technology }: Properties) {
         <a className={textSize} href={"/overview/" + overviewLink}>
           Overview
         </a>
-        <a className={textSize} href={"/getting-started/" + gettingStartedLink}>
+        <a className={textSize} href={gettingStartedLink}>
           Getting Started
         </a>
       </div>

@@ -10,7 +10,7 @@ const archLinux: NoteLinkData = {
   name: 'Arch Linux',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
-  gettingStartedLink: 'test2',
+  gettingStartedLink: 'https://wiki.archlinux.org/title/Installation_guide',
 };
 
 const godot: NoteLinkData = {
@@ -19,7 +19,7 @@ const godot: NoteLinkData = {
   name: 'Godot',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
-  gettingStartedLink: 'test2',
+  gettingStartedLink: 'https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html',
 };
 
 const unity: NoteLinkData = {
@@ -28,7 +28,7 @@ const unity: NoteLinkData = {
   name: 'Unity',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
-  gettingStartedLink: 'test2',
+  gettingStartedLink: 'https://learn.unity.com/',
 }
 
 export const technologies = [archLinux, godot, unity]

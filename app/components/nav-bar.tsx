@@ -11,7 +11,7 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const NavLinks = () => (
-    <div className="flex sm:flex-col lg:flex-row gap-4">
+    <div className="flex flex-col lg:flex-row gap-4">
       <Button text="getting-started" href="/getting-started" />
       <Button text="concepts" />
       <Button text="tools" />
@@ -21,10 +21,8 @@ export default function NavBar() {
   );
 
   const HamburgerMenu = () => (
-    <div className="absolute top-12 left-0 w-[50%]">
-      <div className="flex flex-col gap-y-2 p-4">
-        <NavLinks />
-      </div>
+    <div className="absolute top-12 left-0 w-full flex flex-col gap-y-2 p-4">
+      <NavLinks />
     </div>
   );
 
@@ -38,7 +36,7 @@ export default function NavBar() {
           />
           {menuOpen && <HamburgerMenu />}
         </div>
-        <div className="lg:block sm:hidden">
+        <div className="lg:block hidden">
           <NavLinks />
         </div>
       </div>
@@ -47,7 +45,7 @@ export default function NavBar() {
 
       {/* Visible NavLinks on large screens */}
 
-      <div className="flex flex-row gap-x-4">
+      <div className="lg:flex hidden flex-row gap-x-4">
         <Search />
         <SocialLinks />
       </div>
