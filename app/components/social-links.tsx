@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Coffee from '@/public/logos/coffee-svgrepo-com.svg';
-import Reddit from '@/public/logos/reddit-icon.svg';
+import Coffee from '@/public/icons/coffee-svgrepo-com.svg';
+import Reddit from '@/public/icons/reddit-icon.svg';
 
 export default function SocialLinks() {
 

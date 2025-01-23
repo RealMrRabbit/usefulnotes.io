@@ -1,7 +1,0 @@
-archLinux:
-  svg: '@/public/logos/archlinux.svg'
-  svgLink: 'https://archlinux.org'
-  name: 'Arch Linux'
-  nameLink:
-  cheatSheetLink: 'test'
-  gettingStartedLink: 'test2'
