@@ -7,4 +7,5 @@ export interface NoteLinkData {
     nameLink: string;
     cheatSheetLink: string;
     gettingStartedLink: string;
+    slug: string;
   }

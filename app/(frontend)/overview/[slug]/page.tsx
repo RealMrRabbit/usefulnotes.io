@@ -63,7 +63,7 @@ print(reversed_array)
           <div className="flex flex-col gap-5 text-text-light">
             <h1 className="text-4xl font-bold">{doc.name}</h1>
             <h2 className="text-2xl">Overview</h2>
-            <RichText data={doc.longDescription} className="text-lg h-fit" />
+            <RichText data={doc.longDescription} className="text-lg h-fit overflow-auto" />
           </div>
         </div>
         <div className="flex flex-row items-top gap-5 justify-around">

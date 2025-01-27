@@ -7,7 +7,6 @@ interface Properties {
 
 export default function NoteLink({ technology }: Properties) {
   const textSize = "text-xs";
-  const overviewLink = technology.logoLink;
   const gettingStartedLink = technology.gettingStartedLink;
   const officialLink = technology.logoLink;
 
@@ -27,7 +26,7 @@ export default function NoteLink({ technology }: Properties) {
           {technology.name}
         </a>
 
-        <a className={textSize} href={"/overview/" + overviewLink}>
+        <a className={textSize} href={"/overview/" + technology.slug}>
           Overview
         </a>
         <a className={textSize} href={gettingStartedLink}>
