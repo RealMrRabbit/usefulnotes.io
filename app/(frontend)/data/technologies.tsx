@@ -5,8 +5,8 @@ import { NoteLinkData } from './note-link-data';
 
 
 const archLinux: NoteLinkData = {
-  svg: ArchIcon,
-  svgLink: 'https://archlinux.org',
+  logo: ArchIcon,
+  logoLink: 'https://archlinux.org',
   name: 'Arch Linux',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
@@ -14,8 +14,8 @@ const archLinux: NoteLinkData = {
 };
 
 const godot: NoteLinkData = {
-  svg: GodotIcon,
-  svgLink: 'https://godotengine.org/',
+  logo: GodotIcon,
+  logoLink: 'https://godotengine.org/',
   name: 'Godot',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
@@ -23,8 +23,8 @@ const godot: NoteLinkData = {
 };
 
 const unity: NoteLinkData = {
-  svg: UnityIcon,
-  svgLink: 'https://unity.com/',
+  logo: UnityIcon,
+  logoLink: 'https://unity.com/',
   name: 'Unity',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',

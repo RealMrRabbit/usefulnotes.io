@@ -4,8 +4,8 @@ import { NoteLinkData } from './note-link-data';
 
 
 const python: NoteLinkData = {
-  svg: PythonLogo,
-  svgLink: 'https://www.python.org/',
+  logo: PythonLogo,
+  logoLink: 'https://www.python.org/',
   name: 'Python',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',
@@ -13,8 +13,8 @@ const python: NoteLinkData = {
 };
 
 const ruby: NoteLinkData = {
-  svg: RubyLogo,
-  svgLink: 'https://www.ruby-lang.org/en/',
+  logo: RubyLogo,
+  logoLink: 'https://www.ruby-lang.org/en/',
   name: 'Ruby',
   nameLink: '', // Add the name link if needed
   cheatSheetLink: 'test',

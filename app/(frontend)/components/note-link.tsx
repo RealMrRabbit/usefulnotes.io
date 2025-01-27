@@ -1,4 +1,4 @@
- import Image from "next/image";
+import Image from "next/image";
 import { NoteLinkData } from "../data/note-link-data";
 
 interface Properties {
@@ -7,15 +7,18 @@ interface Properties {
 
 export default function NoteLink({ technology }: Properties) {
   const textSize = "text-xs";
-  const overviewLink = technology.svgLink;
+  const overviewLink = technology.logoLink;
   const gettingStartedLink = technology.gettingStartedLink;
-  const officialLink = technology.svgLink;
+  const officialLink = technology.logoLink;
+
   return (
     <div className="flex justify-between items-center bg-component text-text-light p-2 rounded-default text-center text-nowrap">
       <a href={officialLink}>
         <Image
           className="hover:cursor-pointer p-2 shadow-default bg-background rounded-default h-20 w-20 self-center"
-          src={technology.svg}
+          src={technology.logo.thumbnailURL}
+          width={technology.logo.width}
+          height={technology.logo.height}
           alt="failed"
         />
       </a>
@@ -23,6 +26,7 @@ export default function NoteLink({ technology }: Properties) {
         <a href={technology.nameLink} className="hover: text-xl pb-1">
           {technology.name}
         </a>
+
         <a className={textSize} href={"/overview/" + overviewLink}>
           Overview
         </a>

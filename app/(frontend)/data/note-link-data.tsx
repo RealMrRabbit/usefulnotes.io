@@ -1,8 +1,8 @@
-import { StaticImageData } from "next/image";
+import { Media } from "@/payload-types";
 
 export interface NoteLinkData {
-    svg: StaticImageData;
-    svgLink: string;
+    logo: Media;
+    logoLink: string | null | undefined;
     name: string;
     nameLink: string;
     cheatSheetLink: string;

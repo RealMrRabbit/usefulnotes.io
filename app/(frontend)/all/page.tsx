@@ -1,36 +1,25 @@
+import { getPayload } from "payload";
 import NoteLink from "../components/note-link";
 import Search from "../components/search";
-import { languages } from "../data/languages";
-import { technologies } from "../data/technologies";
+import configPromise from "@payload-config";
 
-export default function Home() {
-  const codeSnippets = [
-    {
-      label: "JavaScript",
-      language: "javascript",
-      code: `
-const roles = [
-  "Full-Stack",
-  "Back-End",
-  "Front-End",
-  "Designer"
-];
+export default async function Home() {
+  const payload = await getPayload({ config: configPromise });
 
-const reversedArray = roles.reverse();
+  const results = await payload.find({
+    collection: "basic-info",
+  });
 
-console.log(reversedArray);
-      `,
-    },
-    {
-      label: "Python",
-      language: "python",
-      code: `
-roles = ["Full-Stack", "Back-End", "Front-End", "Designer"]
-reversed_array = list(reversed(roles))
-print(reversed_array)
-      `,
-    },
-  ];
+  // Check if results.docs exist
+  const noteLinkDataArray =
+    results.docs?.map((item) => ({
+      logo: item.logo,
+      logoLink: item.officialSite,
+      name: item.name,
+      nameLink: '',
+      cheatSheetLink: "",
+      gettingStartedLink: "",
+    })) || [];
 
   return (
     <div className="bg-background font-[family-name:var(--font-geist-sans)]">
@@ -49,12 +38,8 @@ print(reversed_array)
           </div>
           <Search />
           <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-5">
-            {technologies.map((technology) => (
-              <NoteLink technology={technology} />
-            ))}
-
-            {languages.map((technology) => (
-              <NoteLink technology={technology} />
+            {noteLinkDataArray.map((noteLinkData, index) => (
+              <NoteLink key={index} technology={noteLinkData} />
             ))}
           </div>
         </div>
