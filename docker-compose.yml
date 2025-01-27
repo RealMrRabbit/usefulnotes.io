@@ -9,19 +9,12 @@ services:
       - POSTGRES_PASSWORD=mysecretpassword
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - ./database/data:/bar/lib/postgresql/data
+      - data:/bar/lib/postgresql/data
     logging:
       driver: none
 
-# docker run -d \
-#         --name postgresql \
-#         -e POSTGRES_PASSWORD=mysecretpassword \
-#         -e PGDATA=/var/lib/postgresql/data/pgdata \
-#         -v /home/connor/workspace/db/postgres:/var/lib/postgresql/data \
-#         postgres
-
-
-
+volumes:
+  data:
 
 
 
