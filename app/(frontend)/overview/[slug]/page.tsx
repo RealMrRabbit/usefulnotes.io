@@ -1,8 +1,26 @@
 import Image from "next/image";
-import Arch from "@/public/logos/archlinux.svg";
-import CodeBlock from "../components/code-block";
+// import Arch from "@/public/logos/archlinux.svg";
+import CodeBlock from "../../components/code-block";
+import { getPayload } from "payload";
+import configPromise from "@payload-config";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
-export default function Home() {
+export default async function Home({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const payload = await getPayload({ config: configPromise });
+  const results = await payload.find({
+    collection: "basic-info",
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+
+  console.log(results);
+  const doc = results.docs[0];
+  console.log(doc);
+
   const codeSnippets = [
     {
       label: "JavaScript",
@@ -37,27 +55,15 @@ print(reversed_array)
         <div className="flex flex-row justify-start gap-10">
           <Image
             className="p-2 shadow-default bg-component max-h-60 max-w-60 rounded-default"
-            src={Arch}
+            src={doc.logo.thumbnailURL}
+            height={doc.logo.height}
+            width={doc.logo.width}
             alt="failed"
           />
           <div className="flex flex-col gap-5 text-text-light">
-            <h1 className="text-4xl font-bold">Arch Linux</h1>
+            <h1 className="text-4xl font-bold">{doc.name}</h1>
             <h2 className="text-2xl">Overview</h2>
-            <p className="text-lg h-fit">
-              Arch Linux is a lightweight, flexible, and minimalist Linux
-              distribution designed for users who value simplicity and control.
-              Built on a rolling-release model, it delivers the latest software
-              updates and packages without requiring major upgrades. Arch is
-              highly customizable, starting with a bare-bones system that users
-              can build upon to suit their specific needs. It adheres to the
-              KISS (Keep It Simple, Stupid) philosophy, emphasizing user control
-              over automation, making it a favorite among experienced Linux
-              enthusiasts. The Arch Wiki is renowned for its detailed
-              documentation, serving as an invaluable resource for
-              troubleshooting and learning. However, Arch's do-it-yourself
-              approach demands a solid understanding of Linux fundamentals,
-              making it best suited for advanced users or those eager to learn.
-            </p>
+            <RichText data={doc.longDescription} className="text-lg h-fit" />
           </div>
         </div>
         <div className="flex flex-row items-top gap-5 justify-around">

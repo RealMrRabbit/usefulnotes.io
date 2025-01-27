@@ -160,7 +160,23 @@ export interface Media {
 export interface BasicInfo {
   id: number;
   name: string;
-  description?: {
+  slug?: string | null;
+  longDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  shortDescription?: {
     root: {
       type: string;
       children: {
@@ -372,7 +388,9 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface BasicInfoSelect<T extends boolean = true> {
   name?: T;
-  description?: T;
+  slug?: T;
+  longDescription?: T;
+  shortDescription?: T;
   logo?: T;
   officialSite?: T;
   tags?: T;
