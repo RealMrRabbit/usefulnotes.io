@@ -7,7 +7,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "payload": "PAYLOAD_CONFIG_PATH=./payload.config.ts payload",
+    "backup-db": "pg_dump -h localhost -U postgres -d postgres -F c -f postgres_export.dump",
+    "restore-db": "pg_restore -h localhost -U postgres -d postgres -1 postgres_export.dump"
+
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.19.0",

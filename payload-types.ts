@@ -14,6 +14,7 @@ export interface Config {
     media: Media;
     'basic-info': BasicInfo;
     tags: Tag;
+    pages: Page;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -24,6 +25,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     'basic-info': BasicInfoSelect<false> | BasicInfoSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -160,7 +162,23 @@ export interface Media {
 export interface BasicInfo {
   id: number;
   name: string;
-  description?: {
+  slug?: string | null;
+  longDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  shortDescription?: {
     root: {
       type: string;
       children: {
@@ -188,6 +206,20 @@ export interface BasicInfo {
 export interface Tag {
   id: number;
   tag: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  slug?: string | null;
+  hero: {
+    type: 'none' | 'basicHero';
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -226,6 +258,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tags';
         value: number | Tag;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'users';
@@ -372,7 +408,9 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface BasicInfoSelect<T extends boolean = true> {
   name?: T;
-  description?: T;
+  slug?: T;
+  longDescription?: T;
+  shortDescription?: T;
   logo?: T;
   officialSite?: T;
   tags?: T;
@@ -385,6 +423,21 @@ export interface BasicInfoSelect<T extends boolean = true> {
  */
 export interface TagsSelect<T extends boolean = true> {
   tag?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  hero?:
+    | T
+    | {
+        type?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

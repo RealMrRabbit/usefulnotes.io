@@ -16,9 +16,8 @@ export default async function Home() {
       logo: item.logo,
       logoLink: item.officialSite,
       name: item.name,
-      nameLink: '',
-      cheatSheetLink: "",
       gettingStartedLink: "",
+      slug: item.slug
     })) || [];
 
   return (
