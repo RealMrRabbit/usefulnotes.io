@@ -2,19 +2,30 @@
   "name": "usefulnotes.io",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "payload": "PAYLOAD_CONFIG_PATH=./payload.config.ts payload",
+    "backup-db": "pg_dump -h localhost -U postgres -d postgres -F c -f postgres_export.dump",
+    "restore-db": "pg_restore -h localhost -U postgres -d postgres -1 postgres_export.dump"
+
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.19.0",
+    "@payloadcms/next": "^3.19.0",
+    "@payloadcms/richtext-lexical": "^3.19.0",
+    "graphql": "^16.10.0",
     "next": "15.1.5",
     "next-dev": "^1.2.8",
+    "payload": "^3.19.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-syntax-highlighter": "^15.6.1"
+    "react-syntax-highlighter": "^15.6.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
