@@ -5,13 +5,14 @@ import { buildConfig } from 'payload'
 import { Media } from './app/collections/media'
 import { BasicInfo } from './app/collections/basic-info'
 import { Tags } from './app/collections/categories'
+import { Pages } from './app/collections/pages'
 
 export default buildConfig({
     // If you'd like to use Rich Text, pass your editor here
     editor: lexicalEditor(),
 
     // Define and configure your collections in this array
-    collections: [Media, BasicInfo, Tags],
+    collections: [Media, BasicInfo, Tags, Pages],
 
     // Your Payload secret - should be a complex and secure string, unguessable
     secret: process.env.PAYLOAD_SECRET || '',
