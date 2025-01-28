@@ -1,6 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { generatePreviewPath } from "../utils/generatePreviewPath";
-import { hero } from "../page-components/config";
+import { hero } from "../page-components/heros/utils/config";
 import { formatSlug } from "./basic-info";
 
 export const Pages: CollectionConfig<"pages"> = {

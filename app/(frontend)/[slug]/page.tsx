@@ -1,15 +1,15 @@
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
-import { RenderHero } from "@/app/page-components/RenderHero";
+import { RenderHero } from "@/app/page-components/heros/utils/RenderHero";
 import { cache } from "react";
 
 type Args = {
-  params: Promise<{ slug?: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export default async function Page({ params: paramsPromise }: Args) {
   const { slug } = await paramsPromise;
-  const payload = await getPayload({ config: configPromise });
+  // const payload = await getPayload({ config: configPromise });
 
   const page = await queryPageBySlug({ slug });
   const { hero } = page;

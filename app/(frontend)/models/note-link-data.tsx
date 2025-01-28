@@ -1,8 +1,8 @@
-import { Media } from "@/payload-types";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface NoteLinkData {
-    logo?: Media;
-    logoLink?: string | null | undefined;
+    logo: string | StaticImport;
+    logoLink: string;
     name: string;
     nameLink: string;
     cheatSheetLink: string;

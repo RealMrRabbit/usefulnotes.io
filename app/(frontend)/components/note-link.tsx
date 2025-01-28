@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { NoteLinkData } from "../data/note-link-data";
+import NextImage from "next/image";
+import { NoteLinkData } from "../models/note-link-data";
 
 interface Properties {
   technology: NoteLinkData;
@@ -13,7 +13,7 @@ export default function NoteLink({ technology }: Properties) {
   return (
     <div className="flex justify-between items-center bg-component text-text-light p-2 rounded-default text-center text-nowrap">
       <a href={officialLink}>
-        <Image
+        <NextImage
           className="hover:cursor-pointer p-2 shadow-default bg-background rounded-default h-20 w-20 self-center"
           src={technology.logo.thumbnailURL}
           width={technology.logo.width}
